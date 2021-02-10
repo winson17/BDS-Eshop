@@ -3,7 +3,7 @@
 
 ``` bash
 # Open the project folder
-cd Vue-Ecom && npm install
+cd BDS-Eshop&& npm install
 
 # FOR DEV: If you have **vue/cli 3** then through **vue ui** you can import the file and serve it. else 
 npm run serve
