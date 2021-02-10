@@ -1,12 +1,3 @@
-# Vue Store-Front Templete
-
-> An E-commerce templete made with bootstrap4
-> and Vue/Vuex/Vue-router.
-
-
-<p align="center">
-  <img src="https://i.imgur.com/LMRIylM.png">
-</p>
 
 ## Development/Producation Setup
 
