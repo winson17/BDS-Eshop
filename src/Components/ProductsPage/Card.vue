@@ -5,7 +5,7 @@
           <div class="card">
             <img class="card-img-top" :src="item.img" alt="Card image cap">
             <div class="overlay">
-              <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Add +</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Ajouter +</button>
               <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link>
             </div>
             <div class="card-body">
@@ -41,6 +41,7 @@ export default {
 }
 /* Card Style */
 .card {
+  border-radius: 6px;
   transition: 500ms;
   position: relative;
   overflow: hidden;

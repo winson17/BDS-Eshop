@@ -6,7 +6,7 @@
         <!-- Newsletter Text -->
         <div class="col-12 col-lg-6">
           <div class="newsletter-text">
-            <h2>Join our Newsletter</h2>
+            <h2>Inscrivez-vous à notre Newsletter</h2>
             <p>Nulla ac convallis lorem, eget euismod nisl. bibendum nec.</p>
           </div>
         </div>
@@ -16,7 +16,7 @@
           <div class="newsletter-form">
             <form>
               <input class="nl-email" placeholder="Your E-mail">
-              <button class="input-button" @click.prevent="haSubmit">Submit</button>
+              <button class="input-button" @click.prevent="haSubmit">Enregistrer</button>
             </form>
           </div>
         </div>

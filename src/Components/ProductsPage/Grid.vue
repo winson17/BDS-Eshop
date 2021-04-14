@@ -3,7 +3,7 @@
     <div class="row justify-content-around">
       <div class="row col-6 pb-4 pr-1">
         <div class="dropdown">
-          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SORT BY
+          <a class="border btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trier par
             <span style="color:#f2be00;">{{ sortButton }}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -42,7 +42,7 @@
                 <br><br><br>
                 <br>
                 <br><br>
-                <h5>Price Range</h5>
+                <h5>Prix :</h5>
                 <slider @clicked="valueSlider"/>
               </div>
 
@@ -57,7 +57,7 @@
             <Card :CardArray="slicedCards" />
 
           <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
-            <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">More +</button>
+            <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">Afficher plus +</button>
           </div>
         </div>
       </div>
@@ -139,6 +139,7 @@ export default {
   border: 1px solid grey !important;
 }
 .dropdown-menu{
+  border-radius:6px;
   background-color: #eee;
   color: #2c3539;
 }
@@ -149,12 +150,16 @@ export default {
 }
 
 .btn-outline-secondary {
-  border-radius: 0 !important;
+  border-radius: 6px!important;
+}
+.border{
+  border-radius: 6px!important;
 }
 
 /*search options*/
 
 .card-selector {
+  border-radius:6px;
   color: #DCDCDC;
   height: 40rem;
   background: #2c3539 !important;

@@ -1,12 +1,11 @@
 <template>
   <div>
-  <h1 class="pt-3 text-center">New arrivals</h1>
   <nav class="row justify-content-center" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <router-link to="/">Home</router-link>
+        <router-link to="/">Accueil</router-link>
       </li>
-      <li class="breadcrumb-item active" aria-current="page">Products</li>
+      <li class="breadcrumb-item active" aria-current="page">Produits</li>
     </ol>
   </nav>
 </div>
@@ -32,6 +31,6 @@ export default {
 
 .breadcrumb>li {
   text-decoration: none !important;
-  color: #f2be00 !important;
+  color: #bdbdbd !important;
 }
 </style>

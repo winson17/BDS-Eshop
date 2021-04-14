@@ -2,32 +2,32 @@
   <div>
     <div :class="cClass">
       <div class="cart-menu">
-        <h1 class="text-center">Cart</h1>
+        <h1 class="size text-center">Panier</h1>
         <hr>
 
         <transition name="fade">
           <div v-if="this.cartContent.length === 0" class="text-center font-italic">
-            Your cart is empty, try to Add stuff.
+            Votre panier est vide
           </div>
         </transition>
 
         <transition-group name="fade">
           <div class="row" v-for="thing in cartContent" v-bind:key="thing.id">
             <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-              <img :src="thing.img" style="width: 90px;">
+              <img :src="thing.img" style="width: 90px; border-radius:6px;">
             </div>
             <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-              <h4>{{ thing.title }}</h4>
+              <h4 class="size-product">{{ thing.title }}</h4>
               <h6>{{ thing.price }}€</h6>
             </div>
             <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
-              <span class="remove-btn" @click="removeThing(thing.id)">remove</span>
+              <span class="remove-btn" @click="removeThing(thing.id)">Supprimer</span>
             </div>
           </div>
         </transition-group >
 
         <hr v-if="this.cartContent.length !== 0">
-        <div class="row justify-content-between" style="background:#7dcf85;padding:10px 10px 10px 10px" v-if="this.cartPrice != undefined">
+        <div class="row justify-content-between" style="background:#2649A1;padding:10px 10px 10px 10px" v-if="this.cartPrice != undefined">
           <div class="flex-column pl-3">
             <h4>Total</h4>
           </div>
@@ -107,13 +107,14 @@ export default {
 }
 /* Cart Body */
 .cart {
+  border-radius: 6px;
   position: fixed;
   margin-right: 0px;
   top: 0;
   right: 0;
   width: 360px;
   height: 100%;
-  background: #303e49;
+  background: #fff;
   overflow-y: auto;
   z-index:1051;
   -webkit-overflow-scrolling: touch;
@@ -129,13 +130,13 @@ export default {
 }
 
 .cart-menu{
-  color: #eee;
+  color: #000;
   margin-left: 10px;
   margin-right: 15px;
 }
 
 hr {
-border-color: white;
+border-color: #bdbdbd;
 }
 
 .row{
@@ -145,12 +146,26 @@ border-color: white;
 
 
 .remove-btn{
+  background-color: #bdbdbd;
   border-radius: 50%;
+  width: 18px;
   content: url('../assets/multiply.png')
 }
 
 .remove-btn:hover {
   background-color: grey;
+}
+.size{
+  font-size: 28px;
+  padding-top : 20px;
+  padding-bottom: 10px;
+  margin-top: 0!important;
+}
+.size-product{
+  font-size: 18px;
+}
+h1{
+  margin: 0!important;
 }
 
 </style>

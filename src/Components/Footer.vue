@@ -4,12 +4,11 @@
       <div class="row justify-content-between">
         <div class="col-3 col-xl-2 col-lg-3 col-md-3 col-sm-3">
           <div class="footer-widget">
-            <div class="footer-title">Navigate</div>
+            <div class="footer-title">Naviguez</div>
             <ul class="list-unstyled">
-              <router-link to="/"><li>About Us</li></router-link>
+              <router-link to="/"><li>A propos</li></router-link>
               <router-link to="/"><li>Blog</li></router-link>
-              <router-link to="/"><li>Contact Us</li></router-link>
-              <router-link to="/"><li>Sitemap</li></router-link>
+              <router-link to="/"><li>Conctactez-nous</li></router-link>
             </ul>
           </div>
         </div>
@@ -18,9 +17,9 @@
           <div class="footer-widget">
             <div class="footer-title">Collection</div>
             <ul class="list-unstyled">
-              <router-link to="/products"><li>New arrivals</li></router-link>
+              <router-link to="/products"><li>Nouveautés</li></router-link>
               <router-link to="/products"><li>Featured</li></router-link>
-              <router-link to="/products"><li>Catalog</li></router-link>
+              <router-link to="/products"><li>Catalogue</li></router-link>
               <router-link to="/products"><li>Brands</li></router-link>
             </ul>
           </div>
@@ -54,7 +53,7 @@
         </div>
         <div class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 text-right">
           <div class="social-info">
-            <strong>Get social</strong>
+            <strong>Réseaux sociaux</strong>
             <img class="facebook" src="@/assets/facebook.png">
             <img class="instagram" src="@/assets/insta.png">
           </div>

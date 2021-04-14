@@ -4,8 +4,8 @@
       <div class="dropdown d-xl-none d-lg-none mr-auto">
         <img src="https://png.icons8.com/windows/32/000000/menu.png" data-toggle="dropdown" data-target="#navd" aria-haspopup="true" aria-expanded="false">
         <div class="dropdown-menu hb" aria-labelledby="navd">
-          <router-link class="dropdown-item" to="/">Home</router-link>
-          <router-link class="dropdown-item" to="/contact">Contact us</router-link>
+          <router-link class="dropdown-item" to="/">Accueil</router-link>
+          <router-link class="dropdown-item" to="/contact">Contactez-nous !</router-link>
         </div>
       </div>
       <!--Logo-->
@@ -14,9 +14,9 @@
       </a>
       <!--Header navigation-->
       <span class="navbar-item bc d-none d-xl-block d-lg-block py-0">
-        <router-link class="pl-5" to="/">Home</router-link>
+        <router-link class="pl-5" to="/">Accueil</router-link>
        
-        <router-link class="px-5" to="/contact">Contact us</router-link>
+        <router-link class="px-5" to="/contact">Contactez-nous !</router-link>
       </span>
 
       <p class="navbar-item ml-auto">
@@ -24,7 +24,7 @@
           <input type="search" class="search">
         </div>
         <div class="user">
-          <h5 style="cursor: pointer; color: white;" data-toggle="modal" data-target="#userModal">Sign In</h5>
+          <h5 style="cursor: pointer; color: white;" data-toggle="modal" data-target="#userModal">Connexion</h5>
         </div>
 
         <div class="bag" @click="openCart">
@@ -42,25 +42,25 @@
             </button>
             <form class="px-3 py-2">
               <div class="form-group">
-                <label for="exampleDropdownFormEmail1">Email address</label>
+                <label for="exampleDropdownFormEmail1">Email : </label>
                 <input type="email" class="form-control" placeholder="email@example.com">
               </div>
               <div class="form-group">
-                <label for="exampleDropdownFormPassword1">Password</label>
+                <label for="exampleDropdownFormPassword1">Mot de passe :</label>
                 <input type="password" class="form-control" placeholder="Password">
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input">
                 <label class="form-check-label" for="dropdownCheck">
-                    Remember me
+                    Se souvenir de moi 
                   </label>
               </div>
-              <button type="submit" class="btn-xl btn-success mt-3">Sign in</button>
+              <button type="submit" class="btn-xl btn-success mt-3">Connexion</button>
             </form>
           </div>
           <div class="modal-footer">
-            <a class="dropdown-item" href="#">Forgot password?</a>
-            <a class="dropdown-item text-right" href="#">Sign up</a>
+            <a class="dropdown-item" href="#">Mot de passe oublié ? </a>
+            <a class="dropdown-item text-right" href="#">Inscrivez-vous!</a>
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@ nav {
   color: #FFD700;
 }
 .btn-sm{
-  border-radius: 0;
+  border-radius: 6px;
 }
 
 .search {
@@ -126,9 +126,9 @@ nav {
   background: #ededed url('../assets/search.png') no-repeat 5px center;
   padding: 5px 8px 0px 26px;
   width: 150px;
-  -webkit-border-radius: 10em;
-  -moz-border-radius: 10em;
-  border-radius: 10em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
   -webkit-transition: all .5s;
   -moz-transition: all .5s;
   transition: all .5s;
@@ -136,6 +136,7 @@ nav {
 }
 
 .search:focus {
+  border-radius: 6px;
   width: 160px;
   border: solid 1px #ccc;
   background-color: #fff;

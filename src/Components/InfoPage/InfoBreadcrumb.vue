@@ -3,9 +3,9 @@
     <nav class="row justify-content-start" v-for="it in information" :key="it.id" aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <router-link to="/">Home</router-link>
+          <router-link to="/">Accueil</router-link>
         </li>
-        <li class="breadcrumb-item"><router-link to="/products">Products</router-link></li>
+        <li class="breadcrumb-item"><router-link to="/products">Produits</router-link></li>
         <li class="breadcrumb-item">{{ it.type }}</li>
         <li class="breadcrumb-item active">{{ it.title }}</li>
       </ol>

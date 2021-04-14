@@ -11,7 +11,7 @@
           <form>
             <div class="form-group">
               <input type="text" class="form-control" required>
-              <label class="label" for="name">Name</label>
+              <label class="label" for="name">Nom</label>
             </div>
             <div class="form-group">
               <input type="email" class="form-control" required>
@@ -21,7 +21,7 @@
               <textarea class="form-control" style="overflow:hidden; height:130px" rows="3" required></textarea>
               <label class="label" for="Message">Message</label>
             </div>
-              <button class="btn btn-light" href="#" role="button">submit</button>
+              <button class="btn btn-light" href="#" role="button">Enregistrer</button>
           </form>
         </div>
         </div>

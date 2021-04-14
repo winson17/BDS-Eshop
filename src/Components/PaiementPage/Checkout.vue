@@ -69,6 +69,7 @@ export default {
           return;
         }
         console.log(result.token);
+        
       });
       /**if (this.address.street == undefined) {
         this.$emit("choose");
