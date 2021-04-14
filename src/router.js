@@ -5,6 +5,8 @@ const Home = () => import('@/views/Products.vue');
 const Products = () => import('@/views/Products.vue');
 const Contact = () => import('@/views/Contact.vue');
 const Info = () => import('@/views/Info.vue');
+const Basket = ()=> import('@/views/Cart.vue');
+const Checkout =()=>import('@/views/Paiement.vue');
 
 
 Vue.use(Router)
@@ -29,6 +31,16 @@ export default new Router({
       path: '/info',
       name: 'Info',
       component: Info
+    }, 
+    {
+      path: '/basket',
+      name :'Basket',
+      component: Basket
+    },
+    {
+    path:'/checkout',
+    name:'Checkout',
+    component:Checkout
     }
   ],
   mode: 'history'

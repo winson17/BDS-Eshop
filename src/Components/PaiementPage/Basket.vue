@@ -21,7 +21,7 @@
               <h6>{{ thing.price }}€</h6>
             </div>
             <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
-              <span class="remove-btn" @click="removeThing(thing.id)">remove</span>
+              <span class="remove-btn" @click="removeThing(thing.id)">X</span>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@
             <h4>{{ cartPrice }}€</h4>
           </div>
            <div>
-            <router-link class="pl-5" to="/paiement">
+            <router-link class="pl-5" to="/checkout">
               <button type="button" class="btn btn-danger">Validez</button>
             </router-link>
           </div>

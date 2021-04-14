@@ -36,9 +36,12 @@
           </div>
         </div>
       </div>
+      <button>
+       <router-link to="/basket">validez</router-link>
+    </button>
     </div>
-
     <div :class="modalClass" @click="cartON"></div>
+    
   </div>
 </template>
 
