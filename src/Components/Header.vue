@@ -23,10 +23,13 @@
         <div class="searc d-none d-xl-block d-lg-block pr-3">
           <input type="search" class="search">
         </div>
-        <div class="user">
+
+        <div class="user" v-if="!auth">
           <h5 style="cursor: pointer; color: white;" data-toggle="modal" data-target="#userModal">Connexion</h5>
         </div>
-
+        <div class="user" v-if="auth">
+          <h5 style="cursor: pointer; color: white;" data-toggle="modal" data-target="#userModal">Deconnexion</h5>
+        </div>
         <div class="bag" @click="openCart">
             <img class="pb-1" src="@/assets/shopping-cart.png">
             <span class="mb-3" v-if="this.bagItemscount > 0">{{ bagItemscount }}</span>
@@ -41,13 +44,21 @@
               <span>x</span>
             </button>
             <form class="px-3 py-2">
-              <div class="form-group">
-                <label for="exampleDropdownFormEmail1">Email : </label>
-                <input type="email" class="form-control" placeholder="email@example.com">
+               <div class="form-group" v-if="!SignMode"> 
+                <label for="exampleDropdownFormFirstname">Firstname :</label>
+               <input id="exampleDropdownFormFirstname" class="form-control" v-model="Firstname" type="text" placeholder="Firstname" />
+              </div>
+              <div class="form-group" v-if="!SignMode"> 
+                <label for="exampleDropdownFormLastname">Lastname :</label>
+               <input id="exampleDropdownFormLastname" class="form-control" v-model="Lastname" type="text" placeholder="Lastname" />
               </div>
               <div class="form-group">
+                <label for="exampleDropdownFormEmail1" >Email : </label>
+                 <input id="exampleDropdownFormEmail1" class="form-control" v-model="Email" type="Email" placeholder="Email" />
+              </div>
+              <div class="form-group"> 
                 <label for="exampleDropdownFormPassword1">Mot de passe :</label>
-                <input type="password" class="form-control" placeholder="Password">
+               <input id="exampleDropdownFormPassword1" class="form-control" v-model="Password" type="password" placeholder="Password" />
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input">
@@ -55,12 +66,14 @@
                     Se souvenir de moi 
                   </label>
               </div>
-              <button type="submit" class="btn-xl btn-success mt-3">Connexion</button>
+              <span v-if="errorVisible">{{errorText}}</span>
+              <button  class="btn-xl btn-success mt-3" v-on:click="Submit()"><span v-if="SignMode">Connexion</span><span v-if="!SignMode">Inscrivez-vous</span></button>
             </form>
           </div>
           <div class="modal-footer">
             <a class="dropdown-item" href="#">Mot de passe oublié ? </a>
-            <a class="dropdown-item text-right" href="#">Inscrivez-vous!</a>
+            <a class="dropdown-item text-right" href="#" v-if="SignMode" v-on:click="ChangeMode()">Inscrivez-vous!</a>
+             <a class="dropdown-item text-right" href="#" v-if="!SignMode" v-on:click="ChangeMode()">Connecter vous!</a>
           </div>
         </div>
       </div>
@@ -72,12 +85,13 @@
 
 <script>
 import Cart from '@/Components/Cart.vue'
-
+import Sign from "@/mixins/Sign.js";
 export default {
   name: 'Header',
   components: {
     Cart
   },
+  mixins: [Sign],
   computed: {
     bagItemscount() {
       return this.$store.getters.itemsNumber
