@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition-group name="fade" class="row" tag="div">
-      <div v-for="item in CardArray" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
+      <div v-for="item in CardArray" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3 ITEMCARD" :key="item.id">
           <div class="card">
             <img class="card-img-top" :src="item.img" alt="Card image cap">
             <div class="overlay">

@@ -12,26 +12,37 @@ export default {
   },
   methods: {
     Login(email, password) {
-      return fetch(url + "/auth/login", {
-        method: "POST",
-        headers,
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      }).then(function(res) {
-        this.auth = true;
-        return res.json();
-      });
+      try {
+        await axios.get(`wiwiLeBro`, {
+          body:JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        }).then(response => {
+          localStorage.setItem("token",response.data.token)
+          this.auth = true;
+          return response.data 
+        })
+      } catch (e) {
+        this.errors.push(e);
+      }
     },
     SignOut() {
       localStorage.clear();
       this.auth = false;
     },
     GetUserDetail(id) {
-      fetch(url + "/users/" + id).then(function(res) {
-        return res.json();
-      });
+      try {
+        await axios.get(`wiwiLeBro`, {
+          body:JSON.stringify({
+           id:id
+          }),
+        }).then(response => {
+          return response.data 
+        })
+      } catch (e) {
+        this.errors.push(e);
+      }
     },
   },
 };

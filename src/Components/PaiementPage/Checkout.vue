@@ -1,6 +1,5 @@
 <template>
   <div class="form">
- 
     <div class="form-l">
       <div class="row" v-for="thing in cartContent" v-bind:key="thing.id">
         <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
@@ -9,25 +8,23 @@
         <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
           <h4>{{ thing.title }}</h4>
           <h6>{{ thing.price }}€</h6>
-             <h6>x{{ thing.qty }}</h6>
+          <h6>x{{ thing.qty }}</h6>
         </div>
       </div>
-       <h4>Total : {{ cartPrice }}€</h4>
-      
-    </div>   
+      <h4>Total : {{ cartPrice }}€</h4>
+    </div>
     <div class="form-r">
       <div class="card-container">
         <div ref="card"></div>
-          <button v-on:click="purchase" class="button">Payer</button>
-        </div>
+        <button v-on:click="purchase" class="button">Payer</button>
+      </div>
     </div>
-    
   </div>
 </template>
 
 <script>
 //let stripe = Stripe(`${process.env.STRIPE_KEY}`),
-
+import axios from "axios";
 let stripe = Stripe(
     `pk_test_51IVxZmDiXDF9M1dYHIFVugXvComTJkwFmGdMiFj61v8dhQVAXkE8Pf4XcMYw16SEQ3s1xsDtR5pDGoTWMFDNOKY200nj8bgX71`
   ),
@@ -63,14 +60,24 @@ export default {
   },
   methods: {
     purchase() {
-      stripe.createToken(card).then(function (result) {
+      stripe.createToken(card).then(async (result) => {
         if (result.error) {
           self.hasCardErrors = true;
           self.$forceUpdate(); // Forcing the DOM to update so the Stripe Element can update.
           return;
         }
-        console.log(result.token);
-        
+        const body = {
+          token: result.token,// -------------Token Stripe
+          mail: "",// -------------A REMPLIR ATTENTE BDD
+          cart: this.$store.state.cartItems,// ------------- RETURN ID AND QTY
+        };
+        try {
+          await axios.post(`wiwiLeBro`, {
+            body: body
+          });
+        } catch (e) {
+          this.errors.push(e);
+        }
       });
       /**if (this.address.street == undefined) {
         this.$emit("choose");

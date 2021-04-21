@@ -56,9 +56,9 @@
 
             <Card :CardArray="slicedCards" />
 
-          <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
+          <!-- <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
             <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">Afficher plus +</button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -89,7 +89,8 @@ export default {
     return this.$store.state.items
     },
     slicedCards(){
-      return this.cards.slice(0, this.showCards)
+      // return this.cards.slice(0, this.showCards)
+      return this.cards;
     }
   },
   methods: {

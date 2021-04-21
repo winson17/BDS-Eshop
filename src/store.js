@@ -133,6 +133,93 @@ export default new Vuex.Store({
   },
   // plugins: [createPersistedState()],
   getters: {
+  async GetItems() {
+      try {
+        await axios.get(`wiwiLeBro`).then(response => {
+          return response.data //-------------------- tu peux aussi set le store items si t'a pas envie que ça le call a chaque fois a la place de faire un return de data
+        })
+      } catch (e) {
+        console.log(e);
+        this.errors.push(e);
+      }
+    },
+    async GetItem(id) {
+      try {
+        await axios.get(`wiwiLeBro`, {
+          body: JSON.stringify({
+            id:id
+          })
+        }).then(response => {
+          return response.data 
+        })
+      } catch (e) {
+        this.errors.push(e);
+      }
+    },
+    async  UpdateItem({id,img,title,price,color,type}) {
+      try {
+        await axios.put(`wiwiLeBro`, {
+          headers: {
+          'Authorization': 'Bearer' + localStorage.getItem("token"),
+          "x-access-token": localStorage.getItem("token"),
+          "Content-Type": "application/json"
+        }, 
+          body:  JSON.stringify({
+            id: id,
+            img: img,// LES DATAS si tu ne les modifies pas tu peux soit renvoyer les anciennes soit envoyer NULL et le back doit gerer à t'a place ;)
+            title: title,
+            price: price,
+            color: color,
+            type: type,
+          })
+        }).then(response => {
+          return response.data 
+        })
+      } catch (e) {
+        this.errors.push(e);
+      }
+    },
+    async CreateItem({id,img,title,price,color,type}) {
+      try {
+        await axios.post(`wiwiLeBro`, {
+          headers: {
+            'Authorization': 'Bearer' + localStorage.getItem("token"),
+            "x-access-token": localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          }, 
+          body:JSON.stringify({
+            id: id,
+            img: img,
+            title: title,
+            price: price,
+            color: color,
+            type: type,
+          })
+        }).then(response => {
+          return response.data 
+        })
+      } catch (e) {
+        this.errors.push(e);
+      }
+    },
+    async DeleteItem(id) {
+      try {
+        await axios.delete(`wiwiLeBro`, {
+          headers: {
+            'Authorization': 'Bearer' + localStorage.getItem("token"),
+            "x-access-token": localStorage.getItem("token"),
+            "Content-Type": "application/json"
+          }, 
+          body: JSON.stringify({
+            id:id
+          })
+        }).then(response => {
+          return response.data 
+        })
+      } catch (e) {
+        this.errors.push(e);
+      }
+    },
     itemsNumber(state) {
       // Cart Component
       let x = 0;
