@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 // import createPersistedState from 'vuex-persistedstate';
-
+import axios from "axios"
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -10,121 +10,121 @@ export default new Vuex.Store({
     cartItems: [],
     items: [
       {
-        id: 0,
+        _id: 0,
         img: require("@/assets/1.png"),
-        title: "T-shirt",
+        name: "T-shirt",
         price: 20,
         color: "Blue",
         type: "T-shirt",
       },
       {
-        id: 1,
+        _id: 1,
         img: require("@/assets/2.png"),
-        title: "Sweat Brodé BDS",
+        name: "Sweat Brodé BDS",
         price: 45,
         color: "Blue",
         type: "Sweat",
       },
       {
-        id: 2,
+        _id: 2,
         img: require("@/assets/3.png"),
-        title: "Jogging BDS",
+        name: "Jogging BDS",
         price: 30,
         color: "blue",
         type: "Jogging",
       },
       {
-        id: 3,
+        _id: 3,
         img: require("@/assets/1.png"),
-        title: "T-shirt",
+        name: "T-shirt",
         price: 20,
         color: "Blue",
         type: "T-shirt",
       },
       {
-        id: 4,
+        _id: 4,
         img: require("@/assets/2.png"),
-        title: "Sweat Brodé BDS",
+        name: "Sweat Brodé BDS",
         price: 45,
         color: "Blue",
         type: "Sweat",
       },
       {
-        id: 5,
+        _id: 5,
         img: require("@/assets/3.png"),
-        title: "Jogging BDS",
+        name: "Jogging BDS",
         price: 30,
         color: "blue",
         type: "Jogging",
       },
       {
-        id: 6,
+        _id: 6,
         img: require("@/assets/1.png"),
-        title: "T-shirt",
+        name: "T-shirt",
         price: 20,
         color: "Blue",
         type: "T-shirt",
       },
       {
-        id: 7,
+        _id: 7,
         img: require("@/assets/2.png"),
-        title: "Sweat Brodé BDS",
+        name: "Sweat Brodé BDS",
         price: 45,
         color: "Blue",
         type: "Sweat",
       },
       {
-        id: 8,
+        _id: 8,
         img: require("@/assets/3.png"),
-        title: "Jogging BDS",
+        name: "Jogging BDS",
         price: 30,
         color: "blue",
         type: "Jogging",
       },
       {
-        id: 9,
+        _id: 9,
         img: require("@/assets/1.png"),
-        title: "T-shirt",
+        name: "T-shirt",
         price: 20,
         color: "Blue",
         type: "T-shirt",
       },
       {
-        id: 10,
+        _id: 10,
         img: require("@/assets/2.png"),
-        title: "Sweat Brodé BDS",
+        name: "Sweat Brodé BDS",
         price: 45,
         color: "Blue",
         type: "Sweat",
       },
       {
-        id: 11,
+        _id: 11,
         img: require("@/assets/3.png"),
-        title: "Jogging BDS",
+        name: "Jogging BDS",
         price: 30,
         color: "blue",
         type: "Jogging",
       },
       {
-        id: 12,
+        _id: 12,
         img: require("@/assets/1.png"),
-        title: "T-shirt",
+        name: "T-shirt",
         price: 20,
         color: "Blue",
         type: "T-shirt",
       },
       {
-        id: 13,
+        _id: 13,
         img: require("@/assets/2.png"),
-        title: "Sweat Brodé BDS",
+        name: "Sweat Brodé BDS",
         price: 45,
         color: "Blue",
         type: "Sweat",
       },
       {
-        id: 14,
+        _id: 14,
         img: require("@/assets/3.png"),
-        title: "Jogging BDS",
+        name: "Jogging BDS",
         price: 30,
         color: "blue",
         type: "Jogging",
@@ -133,93 +133,7 @@ export default new Vuex.Store({
   },
   // plugins: [createPersistedState()],
   getters: {
-  async GetItems() {
-      try {
-        await axios.get(`wiwiLeBro`).then(response => {
-          return response.data //-------------------- tu peux aussi set le store items si t'a pas envie que ça le call a chaque fois a la place de faire un return de data
-        })
-      } catch (e) {
-        console.log(e);
-        this.errors.push(e);
-      }
-    },
-    async GetItem(id) {
-      try {
-        await axios.get(`wiwiLeBro`, {
-          body: JSON.stringify({
-            id:id
-          })
-        }).then(response => {
-          return response.data 
-        })
-      } catch (e) {
-        this.errors.push(e);
-      }
-    },
-    async  UpdateItem({id,img,title,price,color,type}) {
-      try {
-        await axios.put(`wiwiLeBro`, {
-          headers: {
-          'Authorization': 'Bearer' + localStorage.getItem("token"),
-          "x-access-token": localStorage.getItem("token"),
-          "Content-Type": "application/json"
-        }, 
-          body:  JSON.stringify({
-            id: id,
-            img: img,// LES DATAS si tu ne les modifies pas tu peux soit renvoyer les anciennes soit envoyer NULL et le back doit gerer à t'a place ;)
-            title: title,
-            price: price,
-            color: color,
-            type: type,
-          })
-        }).then(response => {
-          return response.data 
-        })
-      } catch (e) {
-        this.errors.push(e);
-      }
-    },
-    async CreateItem({id,img,title,price,color,type}) {
-      try {
-        await axios.post(`wiwiLeBro`, {
-          headers: {
-            'Authorization': 'Bearer' + localStorage.getItem("token"),
-            "x-access-token": localStorage.getItem("token"),
-            "Content-Type": "application/json"
-          }, 
-          body:JSON.stringify({
-            id: id,
-            img: img,
-            title: title,
-            price: price,
-            color: color,
-            type: type,
-          })
-        }).then(response => {
-          return response.data 
-        })
-      } catch (e) {
-        this.errors.push(e);
-      }
-    },
-    async DeleteItem(id) {
-      try {
-        await axios.delete(`wiwiLeBro`, {
-          headers: {
-            'Authorization': 'Bearer' + localStorage.getItem("token"),
-            "x-access-token": localStorage.getItem("token"),
-            "Content-Type": "application/json"
-          }, 
-          body: JSON.stringify({
-            id:id
-          })
-        }).then(response => {
-          return response.data 
-        })
-      } catch (e) {
-        this.errors.push(e);
-      }
-    },
+
     itemsNumber(state) {
       // Cart Component
       let x = 0;
@@ -250,6 +164,62 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    async GetItems(state) {
+      try{
+        await axios
+        .get(`https://bds-app.herokuapp.com/api/users/items`, {
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          if (response && response.data) {
+            state.items = response.data;
+          } else {
+            return state.items = [
+              {
+                _id: 0,
+                img: require("@/assets/1.png"),
+                name: "T-shirt",
+                price: 20,
+                color: "Blue",
+                type: "T-shirt",
+              },
+              {
+                _id: 1,
+                img: require("@/assets/2.png"),
+                name: "Sweat Brodé BDS",
+                price: 45,
+                color: "Blue",
+                type: "Sweat",
+              },
+            ];
+          }
+        });
+      }catch (e) {
+        console.log("pute");
+        return state.items = [
+          {
+            _id: 0,
+            img: require("@/assets/1.png"),
+            name: "T-shirt",
+            price: 20,
+            color: "Blue",
+            type: "T-shirt",
+          },
+          {
+            _id: 1,
+            img: require("@/assets/2.png"),
+            name: "Sweat Brodé BDS",
+            price: 45,
+            color: "Blue",
+            type: "Sweat",
+          },
+        ];
+      }
+   
+    },
     inCart(state, n) {
       // Cart Component
 

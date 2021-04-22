@@ -68,7 +68,7 @@
 <script>
 import slider from './slider.vue'
 import Card from './Card.vue'
-
+import axios from "axios"
 export default {
   name:'Grid',
   components: {
@@ -82,11 +82,13 @@ export default {
     }
   },
   created(){
-    this.cards = this.it
+    this.$store.commit("GetItems");
+    this.cards = this.$store.state.items;
   },
   computed: {
     it(){
-    return this.$store.state.items
+      this.$store.commit("GetItems",this.$store.state.items);
+    // return this.$store.state.items;
     },
     slicedCards(){
       // return this.cards.slice(0, this.showCards)
@@ -94,6 +96,22 @@ export default {
     }
   },
   methods: {
+    async GetItems() {
+     await axios
+        .get(`https://bds-app.herokuapp.com/api/users/items`, {
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          if (response && response.data) {
+            return response.data;
+          } else {
+            return [];
+          }
+        });
+    },
     incCardNumber() {
       return this.showCards += 6
     },
@@ -103,7 +121,7 @@ export default {
       this.cards = this.it.filter((e)=> x < e.price && e.price < y)
     },
     sortDate() {
-       this.cards.sort((a, b) => (a.title.length * 2)-(b.title.length * 4))
+       this.cards.sort((a, b) => (a.name.length * 2)-(b.name.length * 4))
        return this.sortButton = 'DATE'
     },
     sortPrice() {

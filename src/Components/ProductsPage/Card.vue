@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition-group name="fade" class="row" tag="div">
-      <div v-for="item in CardArray" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3 ITEMCARD" :key="item.id">
+      <div v-for="item in CardArray" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3 ITEMCARD" :key="item._id">
           <div class="card">
             <img class="card-img-top" :src="item.img" alt="Card image cap">
             <div class="overlay">
@@ -9,8 +9,9 @@
               <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link>
             </div>
             <div class="card-body">
-              <h5 class="card-title">{{ item.title }}</h5>
+              <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.price }}€</p>
+                  <p class="card-text">Stock:{{ item.quantity }}</p>
             </div>
           </div>
       </div>

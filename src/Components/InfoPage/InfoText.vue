@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="more info d-flex justify-content-between text-center" >
-        <div class="col4 flex-fill" v-for="(info, index) in moreInfo" :class="[index === active ? 'col4 active' : '']" @click="moreInfoSelect(index)" :key="info.id">
+        <div class="col4 flex-fill" v-for="(info, index) in moreInfo" :class="[index === active ? 'col4 active' : '']" @click="moreInfoSelect(index)" :key="info._id">
               <h6>{{ info }}</h6>
         </div>
     </div>

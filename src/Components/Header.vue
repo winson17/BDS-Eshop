@@ -85,33 +85,33 @@
             </button>
             <form class="px-3 py-2">
               <div class="form-group" v-if="!SignMode">
-                <label for="exampleDropdownFormFirstname">Firstname :</label>
+                <label for="exampleDropdownFormFirstname">username :</label>
                 <input
                   id="exampleDropdownFormFirstname"
                   class="form-control"
-                  v-model="Firstname"
+                  v-model="username"
                   type="text"
                   placeholder="Firstname"
                 />
               </div>
               <div class="form-group" v-if="!SignMode">
-                <label for="exampleDropdownFormLastname">Lastname :</label>
+                <label for="exampleDropdownFormLastname">gender :</label>
                 <input
                   id="exampleDropdownFormLastname"
                   class="form-control"
-                  v-model="Lastname"
+                  v-model="gender"
                   type="text"
-                  placeholder="Lastname"
+                  placeholder="gender"
                 />
               </div>
               <div class="form-group">
-                <label for="exampleDropdownFormEmail1">Email : </label>
+                <label for="exampleDropdownFormEmail1">email : </label>
                 <input
                   id="exampleDropdownFormEmail1"
                   class="form-control"
-                  v-model="Email"
-                  type="Email"
-                  placeholder="Email"
+                  v-model="email"
+                  type="email"
+                  placeholder="email"
                 />
               </div>
               <div class="form-group">
@@ -119,9 +119,19 @@
                 <input
                   id="exampleDropdownFormPassword1"
                   class="form-control"
-                  v-model="Password"
+                  v-model="password"
                   type="password"
-                  placeholder="Password"
+                  placeholder="password"
+                />
+              </div>
+                <div class="form-group" v-if="!SignMode">
+                <label for="exampleDropdownFormPassword1">Telephone :</label>
+                <input
+                  id="exampleDropdownFormPassword1"
+                  class="form-control"
+                  v-model="phone"
+                  type="number"
+                  placeholder="phone"
                 />
               </div>
               <div class="form-check">

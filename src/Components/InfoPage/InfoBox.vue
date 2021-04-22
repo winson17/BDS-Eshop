@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row mb-5" v-for="it in information" :key="it.id">
+    <div class="row mb-5" v-for="it in information" :key="it._id">
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <img class="img-fluid" :src="it.img">
       </div>
@@ -8,7 +8,7 @@
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex align-items-center justify-content-start">
         <div class="info pt-xl-0 pt-lg-0 pt-5">
           <span class="float-left pr-3">★★★★★</span><h6 style="width:190px;">3 avis</h6>
-          <h1 class="font-weight-bold text-uppercase pt-3">{{ it.title }}</h1>
+          <h1 class="font-weight-bold text-uppercase pt-3">{{ it.name }}</h1>
           <h4>{{ it.price }}€</h4>
           <br><br><br>
           <div class="control number text-center">

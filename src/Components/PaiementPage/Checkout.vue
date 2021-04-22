@@ -6,7 +6,7 @@
           <img :src="thing.img" style="width: 90px" />
         </div>
         <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-          <h4>{{ thing.title }}</h4>
+          <h4>{{ thing.name }}</h4>
           <h6>{{ thing.price }}€</h6>
           <h6>x{{ thing.qty }}</h6>
         </div>
@@ -68,7 +68,7 @@ export default {
         }
         const body = {
           token: result.token,// -------------Token Stripe
-          mail: "",// -------------A REMPLIR ATTENTE BDD
+          mail: localStorage.getItem("email"),// -------------A REMPLIR ATTENTE BDD
           cart: this.$store.state.cartItems,// ------------- RETURN ID AND QTY
         };
         try {

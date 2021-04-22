@@ -3,10 +3,11 @@ import AuthApi from "./AuthApi.js";
 export default {
   data: function() {
     return {
-      Firstname: "test",
-      Lastname: "test",
-      Email: "test@test.test",
-      Password: "test",
+      username: "test",
+      gender: "wiwio",
+      email: "email@email.email",
+      password: "password",
+      phone:"031679163",
       errorVisible: false,
       errorText: "",
       SignMode: true,
@@ -17,7 +18,6 @@ export default {
       this.Login(this.Email, this.Password).then((res) => {
         if (res.auth == true) {
           localStorage.setItem("id", res.body._id);
-          localStorage.setItem("token", res.token);
         } else {
           this.errorText = "Account not Found";
           this.errorVisible = true;
@@ -26,11 +26,11 @@ export default {
     },
     SignUp() {
       this.Create({
-        Firstname: this.Firstname,
-        Lastname: this.Lastname,
-        Email: this.Email,
-        Password: this.Password,
-        admin: false,
+        username: this.username,
+        gender: this.gender,
+        email: this.email,
+        password: this.password,
+        phone: this.phone,
       }).then((res) => {
         if (res._id) {
           this.SignIn();

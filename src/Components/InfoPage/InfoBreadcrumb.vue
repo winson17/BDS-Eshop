@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="row justify-content-start" v-for="it in information" :key="it.id" aria-label="breadcrumb">
+    <nav class="row justify-content-start" v-for="it in information" :key="it._id" aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <router-link to="/">Accueil</router-link>
