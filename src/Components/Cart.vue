@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <button>
+      <button type="button" class="btn btn-outline-secondary btn-lg btn-block color">
        <router-link to="/basket">validez</router-link>
     </button>
     </div>
@@ -166,6 +166,10 @@ border-color: #bdbdbd;
 }
 h1{
   margin: 0!important;
+}
+.color {
+  border-radius: 6px!important;
+  
 }
 
 </style>
