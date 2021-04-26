@@ -198,7 +198,7 @@ export default new Vuex.Store({
           }
         });
       }catch (e) {
-        console.log("pute");
+    
         return state.items = [
           {
             _id: 0,
