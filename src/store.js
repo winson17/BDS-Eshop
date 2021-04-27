@@ -223,7 +223,7 @@ export default new Vuex.Store({
     inCart(state, n) {
       // Cart Component
 
-      const isId = (element) => element.id === n.id;
+      const isId = (element) => element._id === n._id;
       let z = state.cartItems.findIndex(isId);
       if (z != -1) {
         return (state.cartItems[z].qty += 1);
@@ -236,7 +236,7 @@ export default new Vuex.Store({
     outCart(state, n) {
       // Cart Component
 
-      const isID = (element) => element.id === n;
+      const isID = (element) => element._id === n;
       let z = state.cartItems.findIndex(isID);
 
       if (z != -1 && state.cartItems[z].qty > 1) {

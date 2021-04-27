@@ -6,7 +6,7 @@
           <img :src="thing.img" style="width: 90px" />
         </div>
         <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-          <h4>{{ thing.name }}</h4>
+          <h4>{{ thing.title }}</h4>
           <h6>{{ thing.price }}€</h6>
           <h6>x{{ thing.qty }}</h6>
         </div>
@@ -24,7 +24,7 @@
 
 <script>
 //let stripe = Stripe(`${process.env.STRIPE_KEY}`),
-import axios from "axios";
+
 let stripe = Stripe(
     `pk_test_51IVxZmDiXDF9M1dYHIFVugXvComTJkwFmGdMiFj61v8dhQVAXkE8Pf4XcMYw16SEQ3s1xsDtR5pDGoTWMFDNOKY200nj8bgX71`
   ),
@@ -50,34 +50,39 @@ export default {
   },
   mounted() {
     card = elements.create("card", {
-      base: {
-        border: "1px solid #D8D8D8",
-        borderRadius: "4px",
-        color: "blue",
+      style: {
+        base: {
+          iconColor: "#c4f0ff",
+          color: "#fff",
+          fontWeight: "500",
+          fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+          fontSize: "16px",
+          fontSmoothing: "antialiased",
+          ":-webkit-autofill": {
+            color: "#fce883",
+          },
+    },
+    invalid: {
+      iconColor: '#FFC7EE',
+      color: '#FFC7EE',
+    
+          //border: "1px solid #D8D8D8",
+          //borderRadius: "4px",
+          //color: "blue",
+        },
       },
     });
     card.mount(this.$refs.card);
   },
   methods: {
     purchase() {
-      stripe.createToken(card).then(async (result) => {
+      stripe.createToken(card).then(function (result) {
         if (result.error) {
           self.hasCardErrors = true;
           self.$forceUpdate(); // Forcing the DOM to update so the Stripe Element can update.
           return;
         }
-        const body = {
-          token: result.token,// -------------Token Stripe
-          mail: localStorage.getItem("email"),// -------------A REMPLIR ATTENTE BDD
-          cart: this.$store.state.cartItems,// ------------- RETURN ID AND QTY
-        };
-        try {
-          await axios.post(`wiwiLeBro`, {
-            body: body
-          });
-        } catch (e) {
-          this.errors.push(e);
-        }
+        console.log(result.token);
       });
       /**if (this.address.street == undefined) {
         this.$emit("choose");

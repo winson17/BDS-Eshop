@@ -39,7 +39,7 @@
           </div>
            <div>
             <router-link class="pl-5" to="/checkout">
-              <button type="button" class="btn btn-danger">Validez</button>
+              <button type="button" class="btn btn-b">Validez</button>
             </router-link>
           </div>
         </div>
@@ -71,4 +71,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+.btn-b{
+  border-radius: 6px;
+  background-color:#fff;
+  border: 1px solid grey !important;
+}
+.btn-b:hover{
+  background: #2649a1;
+ 
+}
+</style>
 
