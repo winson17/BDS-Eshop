@@ -2,7 +2,7 @@
   <div class="form">
     <div class="form-l">
        <h4>Resumé</h4>
-      <div class="row" v-for="thing in cartContent" v-bind:key="thing._id">
+      <div class="row space" v-for="thing in cartContent" v-bind:key="thing._id">
         <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
           <img :src="thing.img" style="width: 90px" />
         </div>
@@ -163,6 +163,9 @@ export default {
       background: #2649a1;
     }
   }
+}
+.space{
+  padding: 5px;
 }
 </style>
 ;

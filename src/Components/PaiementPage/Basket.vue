@@ -11,7 +11,7 @@
             Votre panier est vide.
           </div>
 
-          <div class="row" v-for="thing in cartContent" v-bind:key="thing._id">
+          <div class="row space" v-for="thing in cartContent" v-bind:key="thing._id">
             <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
               <img :src="thing.img" style="width: 90px" />
             </div>
@@ -23,6 +23,7 @@
             <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
               <span class="remove-btn" @click="removeThing(thing.id)">X</span>
             </div>
+         
           </div>
         </div>
         <div
@@ -90,6 +91,9 @@ export default {
   transition: all ease 0.2s;
   color: #2649a1;
   font-size: 17px;
+}
+.space{
+  padding: 5px;
 }
 </style>
 
