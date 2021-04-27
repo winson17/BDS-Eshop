@@ -1,30 +1,30 @@
 <template>
   <div class="form">
     <div class="form-l">
-      <div class="row" v-for="thing in cartContent" v-bind:key="thing.id">
+       <h4>Resumé</h4>
+      <div class="row" v-for="thing in cartContent" v-bind:key="thing._id">
         <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
           <img :src="thing.img" style="width: 90px" />
         </div>
         <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-          <h4>{{ thing.title }}</h4>
+          <h4>{{ thing.name }}</h4>
           <h6>{{ thing.price }}€</h6>
           <h6>x{{ thing.qty }}</h6>
         </div>
       </div>
       <h4>Total : {{ cartPrice }}€</h4>
     </div>
-    <div class="form-r">
+    
       <div class="card-container">
         <div ref="card"></div>
-        <button v-on:click="purchase" class="button">Payer</button>
+        <button v-on:click="purchase" class="button btn-lg">Payer</button>
       </div>
-    </div>
   </div>
 </template>
 
 <script>
 //let stripe = Stripe(`${process.env.STRIPE_KEY}`),
-
+/*global stripe*/
 let stripe = Stripe(
     `pk_test_51IVxZmDiXDF9M1dYHIFVugXvComTJkwFmGdMiFj61v8dhQVAXkE8Pf4XcMYw16SEQ3s1xsDtR5pDGoTWMFDNOKY200nj8bgX71`
   ),
@@ -52,7 +52,7 @@ export default {
     card = elements.create("card", {
       style: {
         base: {
-          iconColor: "#c4f0ff",
+          width:"100%",
           color: "#fff",
           fontWeight: "500",
           fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
@@ -140,24 +140,27 @@ export default {
 .form-l {
   float: left;
   width: 50%;
-}
-.form-r {
-  float: right;
-  width: 50%;
+  margin-left: 100px;
 }
 .card-container {
-  width: 100%;
+  width: 30%;
   display: inline-block;
   position: relative;
+  margin-right: 100px;
+  float: right !important;
   .button {
     float: right;
+    width: 100%;
+    border-radius: 6px;
     margin-right: 10px;
     margin-top: 40px;
+    margin-left: 170px;
     transition: all ease 0.2s;
-    color: #5f93bb;
+    color:  #2649a1;
     font-size: 17px;
     &:hover {
       color: white;
+      background: #2649a1;
     }
   }
 }

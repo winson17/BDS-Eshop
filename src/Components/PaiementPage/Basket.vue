@@ -3,23 +3,22 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-9">
-          <h4>Checkout</h4>
-
+          <h4>Votre Panier :</h4>
           <div
             v-if="this.cartContent.length === 0"
             class="text-center font-italic"
           >
-            Your cart is empty, try to Add stuff.
+            Votre panier est vide.
           </div>
 
-          <div class="row" v-for="thing in cartContent" v-bind:key="thing.id">
+          <div class="row" v-for="thing in cartContent" v-bind:key="thing._id">
             <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
               <img :src="thing.img" style="width: 90px" />
             </div>
             <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-              <h4>{{ thing.title }}</h4>
+              <h4>{{ thing.name }}</h4>
               <h6>{{ thing.price }}€</h6>
-               <h6>x{{ thing.qty }}</h6>
+              <h6>x{{ thing.qty }}</h6>
             </div>
             <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
               <span class="remove-btn" @click="removeThing(thing.id)">X</span>
@@ -32,14 +31,15 @@
           v-if="this.cartPrice != undefined"
         >
           <div class="flex-column pl-3">
-            <h4>Total :  </h4>
+            <h4>Total :</h4>
           </div>
           <div class="flex-column pr-3">
             <h4>{{ cartPrice }}€</h4>
           </div>
-           <div>
+          <hr />
+          <div>
             <router-link class="pl-5" to="/checkout">
-              <button type="button" class="btn btn-b">Validez</button>
+              <button type="button" class="button btn-b btn-lg">Validez</button>
             </router-link>
           </div>
         </div>
@@ -64,22 +64,32 @@ export default {
       return this.$store.getters.totalPrice;
     },
   },
-  methods:{
-   removeThing(id){
-      this.$store.commit('outCart',id)
-    }
-  }
+  methods: {
+    removeThing(id) {
+      this.$store.commit("outCart", id);
+    },
+  },
 };
 </script>
 <style scoped>
-.btn-b{
+.btn-b {
   border-radius: 6px;
-  background-color:#fff;
+  background-color: #fff;
   border: 1px solid grey !important;
 }
-.btn-b:hover{
-  background: #2649a1;
- 
+.button:hover {
+  color: #fff;
+  background-color: #2649a1;
+}
+.button {
+  width: 100%;
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-top: 40px;
+  margin-left: 170px;
+  transition: all ease 0.2s;
+  color: #2649a1;
+  font-size: 17px;
 }
 </style>
 
